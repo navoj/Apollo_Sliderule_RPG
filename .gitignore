@@ -1,0 +1,17 @@
+# Original reference PDF is intentionally not published.
+/Apollo11_Flight_Plan.pdf
+
+# Local credentials and environment configuration.
+.env
+.env.*
+
+# LaTeX intermediates; the finished PDFs remain tracked.
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz

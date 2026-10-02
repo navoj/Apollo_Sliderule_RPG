@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\newif\ifanswers
+\answerstrue
+\newcommand{\Edition}{REFEREE / ANSWERS}
+\input{apollo-style}
+\input{apollo-cover-art}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{0.08in}
+{\Huge\bfseries\sffamily APOLLO\par}
+\vspace{0.1in}
+{\LARGE\sffamily Hand-Calculation Outline\\[6pt]and Worked Answer Key\par}
+\vspace{0.15in}
+\resizebox{\linewidth}{!}{\ApolloCoverArt}\par
+{\scriptsize Comic-book mission montage / AI-generated ink illustration / not to scale.\par}
+\vspace{0.12in}
+\begin{panel}{Mission Control copy --- keep answers covered}
+Every mandatory calculation for the Apollo 11 beginner game and
+Apollo 13 advanced game: inputs, equations, slide-rule procedures,
+correct answers, decision gates, error consequences, and read-aloud
+narration examples for Mission Control.
+\end{panel}
+\vspace{0.1in}
+{\large 10 Apollo 11 checkpoints\\[6pt]10 Apollo 13 checkpoints\par}
+\vfill
+Companion player book: \texttt{apollo-game.pdf}\\[12pt]
+Use guard digits to grade; expect about three significant figures
+from a player. Do not demand calculator precision from a slide rule.
+\\[20pt]
+Historical schedules are cited. Invented telemetry and thresholds
+are educational models, not NASA operational limits.
+\end{titlepage}
+
+\section*{Referee protocol and a worked error checkpoint}
+Read the player book's full rules first. Apollo 11 starts with command
+reserve 6; Apollo 13 starts with 4. Each card is graded on the
+\emph{first committed sheet}; charge only its worst band once.
+GREEN costs 0, AMBER 1, RED 2. Continue at zero, stop below zero.
+
+\begin{panel}{Numerical bands}
+Ordinary outputs:
+\(\epsilon=100|q-q_{\rm ref}|/|q_{\rm ref}|\).
+GREEN \(\leq1\%\), AMBER \(>1\%\) through \(5\%\), RED \(>5\%\).
+Clock-format GET / intervals: GREEN within 1 s, AMBER through 60 s,
+RED beyond. Computed decimal durations use relative bands.
+Angles on 11-10, 13-08, 13-09: GREEN within \(0.05^\circ\),
+AMBER through \(0.20^\circ\), RED beyond.
+Wrong signs/quadrants, missing outputs, missing/incompatible units,
+failed physical gates, or wrong discrete choices are RED.
+\end{panel}
+
+For physical gates, evaluate unrounded quantities. Do not mark a
+correct rejected-profile negative remainder wrong merely because
+it is negative. Only the \emph{selected} plan must meet the stated
+constraint. The player must use the slide rule for the required
+products, quotients, roots, and logarithms and record the work.
+
+\textbf{Example: card 11-06.}
+Crew commits fuel endurance 82.0 s, descent time 60.0 s, and chooses
+the correct 20 s diversion. Reference endurance is 85.7142857 s;
+\[
+\epsilon=100\,|82.0-85.7142857|/85.7142857=4.33333\%.
+\]
+If all other outputs are GREEN, the checkpoint is \textbf{AMBER}.
+Charge 1 reserve, narrate the less desirable landing site, and require
+the corrected 85.7 s endurance / 25.7 s hover margin.
+
+If the crew instead selects a 30 s diversion, the physical gate fails:
+it needs \(0.700(60+30)=63.0\) kg but has only 60.0.
+Grade \textbf{RED}, charge 2 once (not once per output), and narrate
+the wave-off rehearsal. If reserve remains nonnegative, correct the
+sheet and resume at the nominal landing baseline. If negative, stop
+with the Apollo 11 safe lunar-orbit abort ending.
+
+\textbf{State discipline.} Reserve and the Apollo 11 EVA narrative flag
+are the only persistent error effects. Do not also consume invented
+minutes, water, or fuel because of a warning.
+All accepted pads must be corrected to GREEN quality before continuing.
+Game failure is a simulation result, not a claim that the historical
+crew failed.
+
+\textbf{Read-aloud help.} The narration appendix starts on
+page~\pageref{narration-start}. It includes launch and coast transitions,
+briefings and GREEN / AMBER / RED examples for every card,
+the cartridge-adapter scene, and all mission endings.
+Read briefings before commitment; keep outcome scripts hidden until grading.
+
+\input{apollo-missions}
+\clearpage
+\input{apollo-narration}
+\clearpage
+\input{apollo-sources}
+\end{document}

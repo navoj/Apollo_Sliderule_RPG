@@ -1,0 +1,674 @@
+\Card{11-01}{Commit to the Moon}
+{Planned TLI ignition 002:44:26; 320 s burn. [F1, Table 1-1]}
+{Armstrong commands, Aldrin reads the burn pad, and Collins checks the
+decimal place. The Saturn's third stage will send Columbia and Eagle
+toward the Moon. Do not mistake feet per second for metres per second.}
+{Convert the planned \(10{,}451.2\) ft/s velocity change to m/s.
+Find its average acceleration over 5 min 20 s. Compute the cutoff GET.}
+{Convert minutes by hand. On C/D multiply velocity by 0.3048, then divide
+by elapsed seconds: \(\bar a=\Delta v/t\). Add the duration to GET on paper.
+This is a whole-burn average, not constant actual thrust acceleration.}
+{Write m/s, m/s\(^{2}\), and h:m:s on the pad. Missing or incompatible
+units are RED. The modeled burn is commanded in the forward direction.}
+{AMBER: guidance flags a targeting discrepancy; charge 1 reserve for a
+corrective update. RED: the departure targeting test fails; charge 2 for
+a simulator abort-and-replan. A depleted reserve here means a safe
+Earth-orbit abort, not a lunar landing.}
+{\(\Delta v=10{,}451.2(0.3048)=3185.52576\) m/s, so report
+\(\boxed{3.19\times10^3\text{ m/s}}\).
+\(t=5(60)+20=320\) s;
+\(\bar a=3185.52576/320=\boxed{9.95\text{ m/s}^2}\).
+Cutoff \(002{:}44{:}26+00{:}05{:}20=\boxed{002{:}49{:}46}\).
+An estimate near \(10^4\) ft/s and \(3\times10^3\) m/s catches a factor-ten error.}
+
+\Card{11-02}{Clear the spent stage}
+{Planned evasive maneuver 004:39:44.9; 2.8 s. [F1, Table 1-1]}
+{Collins separates the docked spacecraft from the spent stage.
+The maneuver pad has two nonzero vector components, not two separate
+burns. Mission Control wants a magnitude before authorizing ignition.}
+{For \((\Delta v_x,\Delta v_y,\Delta v_z)=(5.1,0,19.0)\) ft/s,
+find total velocity change in ft/s and m/s. A training model supplies
+average acceleration \(2.14\) m/s\(^{2}\); find burn duration.}
+{Square on A (or multiply C/D), add the squares with pencil, take the
+square root on A/D:
+\(\Delta v=\sqrt{\Delta v_x^2+\Delta v_y^2+\Delta v_z^2}\).
+Convert on C/D and divide by \(\bar a\).}
+{Use the vector magnitude, not \(5.1+19.0\).
+Preserve the supplied component directions on the command pad.
+The 2.14 m/s\(^{2}\) acceleration is invented training telemetry.}
+{AMBER: separation is slower or faster than expected; charge 1 for a
+tracking update. RED: the safe-separation prediction fails; charge 2
+for an emergency avoidance rehearsal before continuing.}
+{\(5.1^2+19^2=26.01+361=387.01\).
+\(\Delta v=\sqrt{387.01}=19.67257\) ft/s
+\(\rightarrow\boxed{19.7\text{ ft/s}}\).
+\(\Delta v=19.67257(0.3048)=\boxed{6.00\text{ m/s}}\).
+\(t=5.996199/2.14=\boxed{2.80\text{ s}}\), matching the
+planned 2.8 s to slide-rule precision.
+Use the table's vector / required-\(\Delta v\) data here, not the
+different 15.6 ft/s value in its \(\Delta V_C\) column.}
+
+\Card{11-03}{Capture lunar orbit}
+{Planned LOI1 ignition 075:54:28.4; 358.9 s. [F1, Table 1-1]}
+{Columbia passes behind the Moon. Houston cannot coach this burn in real
+time. Collins reads a retrograde pad; the crew's arithmetic determines
+whether the simulator accepts lunar capture.}
+{Use components \((-2891.8,-433.1,+20.4)\) ft/s to find
+\(\Delta v\) in ft/s and m/s. Find average acceleration for
+5 min 58.9 s. Compute cutoff GET.}
+{Use A/D for squares and roots, pencil for addition, C/D for unit
+conversion and division. Use \(\bar a=\Delta v/t\).
+Clock arithmetic is sexagesimal; keep the tenths of a second.}
+{Keep all three component signs. A correct magnitude with reversed
+retrograde direction is RED. This scalar exercise does not compute
+an orbit or prove capture in the real world.}
+{AMBER: tracking predicts an off-target lunar orbit; charge 1 for a
+trim update. RED: the simulator rejects capture; charge 2 for a
+contingency return rehearsal. Reserve exhaustion means abort the
+landing and use the game's safe-return ending.}
+{\(\Sigma \Delta v_i^2=8{,}550{,}499.01\) (ft/s)\(^{2}\).
+Square root \(=2924.12363\) ft/s
+\(\rightarrow\boxed{2.92\times10^3\text{ ft/s}}\).
+Multiply by 0.3048 to get \(891.273\) m/s
+\(\rightarrow\boxed{891\text{ m/s}}\).
+\(t=358.9\) s and \(\bar a=891.273/358.9
+=\boxed{2.48\text{ m/s}^2}\).
+Cutoff \(075{:}54{:}28.4+00{:}05{:}58.9
+=\boxed{076{:}00{:}27.3}\).
+The table rounds required \(\Delta v\) to 2924.1 ft/s;
+its separate \(\Delta V_C=2914.8\) ft/s is not substituted.}
+
+\Card{11-04}{Work the lunar clock}
+{Lunar-orbit operations between LOI2 and LM separation. [F1, p. 1-3]}
+{Houston schedules a daylight observation and a radio call.
+Collins must distinguish orbital night from loss of radio coverage:
+they are different scheduling constraints.}
+{An average orbit lasts 118.2 min, including 47 min of night.
+Find daylight minutes, average angular rate in degrees/min,
+and the percentage of an orbit with MSFN coverage if coverage is
+72 min. Is a 65 min daylight task feasible in one daylight interval?}
+{Subtract with pencil, then use C/D for \(360/118.2\) and
+\(100(72/118.2)\). Compare the task with daylight duration.
+Use the supplied full period, not the plan's rounded \(3^\circ/\)min.}
+{The 65 min task must fit daylight. Do not treat 72 min of coverage as
+72 min of daylight, or claim that their overlap is known.
+The task duration is a training scenario.}
+{AMBER: a mistimed observation loses useful coverage; charge 1 for
+rescheduling. RED: the crew confuses the two windows and misses the
+handover; charge 2 for a complete scheduling rebuild.}
+{Daylight \(=118.2-47=\boxed{71.2\text{ min}}\).
+Angular rate \(=360/118.2=\boxed{3.05^\circ/\text{min}}\).
+Coverage \(=100(72/118.2)=\boxed{60.9\%}\).
+\(\boxed{\text{GO}}\) for the daylight task:
+\(71.2-65=\boxed{6.20\text{ min}}\) spare.
+The plan gives approximately \(3^\circ/\)min; using the more precise
+period explains the small difference. There is insufficient information
+to require continuous radio contact throughout the task.}
+
+\Card{11-05}{Lower Eagle's perilune}
+{Planned DOI 101:38:48, 28.5 s; PDI 102:35:13. [F1, Table 1-2]}
+{Aldrin checks descent-orbit insertion while Collins tracks Eagle.
+Armstrong wants to know how much coast time remains after engine cutoff
+before powered descent begins.}
+{Use the table's required \(\Delta v=70.0\) ft/s.
+Convert it to m/s; compute average acceleration over 28.5 s.
+Find DOI cutoff GET and the coast interval from cutoff to PDI.}
+{C/D handles conversion and \(\Delta v/t\).
+Add the burn on paper, then subtract cutoff from PDI, borrowing
+60 seconds or minutes when necessary.}
+{Use required \(\Delta v\), not a reconstruction from the printed
+components: this table's DOI components do not exactly reproduce 70.
+The game does not resolve that source discrepancy.}
+{AMBER: the coast briefing is late; charge 1 for an expedited pad
+review. RED: a descent-readiness check is missed; charge 2 for a
+full rehearsal. If reserve is exhausted, cancel PDI and rendezvous
+with Columbia in the game's safe-return ending.}
+{\(70(0.3048)=\boxed{21.3\text{ m/s}}\).
+\(\bar a=21.336/28.5=\boxed{0.749\text{ m/s}^2}\).
+Cutoff \(101{:}38{:}48+00{:}00{:}28.5
+=\boxed{101{:}39{:}16.5}\).
+PDI minus cutoff:
+\(102{:}35{:}13-101{:}39{:}16.5
+=\boxed{00{:}55{:}56.5}\).
+The printed components \(67.46,-28.68,-12.51\) ft/s would give about
+74.4 ft/s, so the specified 70.0 ft/s input is deliberate.}
+
+\Card{11-06}{Land or wave off}
+{Planned PDI 102:35:13 to touchdown 102:47:11. [F1, pp. 1-9, 3-69]}
+{Armstrong sees a rough patch ahead. Aldrin calls altitude and fuel.
+Choose the longest safe diversion before the checkpoint commits the
+landing. This last-minute hover model is fictional, not Apollo telemetry.}
+{First find touchdown GET and average whole-descent acceleration from
+\(\Delta v=6766\) ft/s and 11 min 58 s.
+At the terminal gate, altitude is 120 m and downward speed is held at
+2.00 m/s. Fuel is 60.0 kg and consumption is 0.700 kg/s.
+Find descent time, fuel endurance, and maximum extra hover time.
+Choose the longest safe diversion from 10, 20, or 30 s; find fuel left.}
+{Use C/D to convert velocity, divide for average acceleration,
+divide altitude by speed, and divide fuel by flow.
+Subtract endurance minus descent time. For a diversion \(d\),
+\(m_{\rm left}=60-0.700(120/2+d)\).}
+{Choose the longest listed diversion that leaves nonnegative fuel.
+The terminal constant-speed model is separate from the whole-descent
+average; do not use that average as net terminal acceleration.}
+{AMBER: the landing pad needs a last-second correction; charge 1 and
+land at a less desirable site. RED: fuel prediction rejects the
+landing; charge 2 and rehearse an immediate wave-off. If reserve is
+exhausted here, no landing occurs; end with a safe lunar-orbit abort.}
+{Touchdown \(=\boxed{102{:}47{:}11}\).
+\(t=718\) s; \(\Delta v=6766(0.3048)=2062.2768\) m/s;
+\(\bar a=\boxed{2.87\text{ m/s}^2}\).
+Terminal descent \(=120/2=\boxed{60.0\text{ s}}\).
+Endurance \(=60/0.700=\boxed{85.7\text{ s}}\);
+extra hover \(=85.7143-60=\boxed{25.7\text{ s}}\).
+Choose \(\boxed{20\text{ s}}\).
+Fuel left \(=60-0.700(80)=\boxed{4.00\text{ kg}}\).
+A 30 s diversion would require 63 kg and is NO-GO.
+Ten seconds is safe but not the requested longest safe choice.}
+
+\Card{11-07}{A walk with a turnaround time}
+{Planned EVA duration 2 h 40 min. [F1, p. 1-2]}
+{Armstrong and Aldrin share the science work, but each carries an
+independent oxygen budget. The flight director will not spend the
+walk-back reserve on one more rock.}
+{For each walker, oxygen starts at 1.80 kg; modeled use is
+0.480 kg/h and protected reserve is 0.300 kg.
+Find use and remaining oxygen over the 160 min EVA.
+Find maximum allowed EVA duration and schedule margin.
+Egress and return consume 28 min of the planned EVA; each science
+station takes 12 min. How many complete stations fit?}
+{C/D: convert minutes to hours, multiply by flow,
+and divide usable oxygen by flow.
+Pencil: subtract reserves and non-science time.
+Round station count down, never up.}
+{Both walkers must retain at least 0.300 kg.
+The protected reserve is not available for science. These suit quantities
+and task times are invented for play.}
+{AMBER: Houston calls an early turnaround; charge 1 and record
+``reduced science.'' RED: the oxygen or station plan violates a return
+margin; charge 2 and record ``EVA curtailed.'' Correct the budget
+before ascent preparations.}
+{EVA \(=160/60=2.66667\) h.
+Use \(=0.480(2.66667)=\boxed{1.28\text{ kg per walker}}\).
+Remaining \(=1.80-1.28=\boxed{0.520\text{ kg}}\), so GO.
+Allowed duration \(=(1.80-0.300)/0.480=3.125\) h
+\(=\boxed{187.5\text{ min}}\) (3 h 7 min 30 s).
+Margin \(=187.5-160=\boxed{27.5\text{ min}}\).
+Stations \(=\lfloor(160-28)/12\rfloor=\boxed{11}\).
+Do not divide one walker's tank by the combined two-person use rate.}
+
+\Card{11-08}{Rise, meet, and dock}
+{Planned ascent 124:23:26, 438 s; CSI 125:21:19.1. [F1, Table 1-2]}
+{Eagle leaves the surface. Collins will bring Columbia to the rendezvous
+only after Aldrin reads back ascent timing and a separate close-range
+braking command.}
+{For ascent \(\Delta v=6060\) ft/s, find m/s and average acceleration
+over 7 min 18 s. Find insertion GET and time until CSI.
+At the separate docking exercise, range is 40.0 m and closure speed
+0.200 m/s. Find time to contact without braking and a burn duration
+to cancel closure using \(0.0500\) m/s\(^{2}\).}
+{Use C/D for conversion and division, pencil for GET.
+For docking, \(t_{\rm contact}=r/v\) and \(t_{\rm brake}=\Delta v/a\).
+The nominal burn is initiated immediately; stop the modeled closure
+before contact and then let the referee narrate docking.}
+{Command braking opposite to closure. Wrong direction is RED.
+The close-range model is not the CSI maneuver and does not model
+the actual rendezvous orbit.}
+{AMBER: Collins delays docking while the crew corrects its pad; charge 1.
+RED: the docking safety predictor flags a collision; charge 2 for an
+emergency separation rehearsal. Exhaustion after landing means the
+simulation ends with rendezvous unresolved, not an invented safe rescue.}
+{\(\Delta v=6060(0.3048)=\boxed{1.85\times10^3\text{ m/s}}\).
+\(\bar a=1847.088/438=\boxed{4.22\text{ m/s}^2}\).
+Insertion \(124{:}23{:}26+00{:}07{:}18
+=\boxed{124{:}30{:}44}\).
+CSI coast \(125{:}21{:}19.1-124{:}30{:}44
+=\boxed{00{:}50{:}35.1}\).
+Time to contact \(=40/0.200=\boxed{200\text{ s}}\).
+Braking \(=0.200/0.0500=\boxed{4.00\text{ s}}\), opposite closure.
+During immediate uniform braking, travel is only
+\(\tfrac12(0.200)(4)=0.400\) m, safely below the 40 m range.}
+
+\Card{11-09}{Bring Columbia home}
+{Planned TEI 135:24:33.8, 149.4 s; EI 195:03:27. [F1]}
+{After docking and LM jettison, Collins checks the Earth-return pad.
+Houston supplies signed components and the planned entry-interface
+time, not a promise that every computed trajectory reaches Earth.}
+{For components \((3213.3,705.0,-138.8)\) ft/s, find vector magnitude
+in ft/s and m/s, and average acceleration over 2 min 29.4 s.
+Find cutoff GET and coast time from cutoff to entry interface.}
+{Use A/D to square and take a root; pencil to add;
+C/D to convert and divide. Convert duration before adding GET.
+Subtract the cutoff time, not ignition, from entry interface.}
+{Retain the signed components on the burn command. An incorrect
+direction is RED even with the right magnitude. Coast time is a
+schedule calculation, not an orbital prediction.}
+{AMBER: Earth-return targeting needs a trim; charge 1.
+RED: the entry predictor rejects the pad; charge 2 for a return-burn
+replan. Exhaustion means an unresolved return simulation.}
+{\(\Sigma \Delta v_i^2=10{,}841{,}587.33\) (ft/s)\(^{2}\).
+\(\Delta v=3292.65658\) ft/s
+\(\rightarrow\boxed{3.29\times10^3\text{ ft/s}}\).
+Multiply by 0.3048: \(\boxed{1.00\times10^3\text{ m/s}}\)
+(guard value 1003.60172).
+\(\bar a=1003.60172/149.4=\boxed{6.72\text{ m/s}^2}\).
+Cutoff \(=\boxed{135{:}27{:}03.2}\).
+Coast \(195{:}03{:}27-135{:}27{:}03.2
+=\boxed{59{:}36{:}23.8}\).
+The plan's rounded required magnitude is 3292.7 ft/s.}
+
+\Card{11-10}{Entry corridor and recovery}
+{Planned EI 195:03:27; detailed splashdown 13:55 later. [F1, p. 3-135]}
+{The crew checks entry geometry before separating for the final descent.
+Houston's training predictor supplies a downward vertical speed and a
+horizontal speed. It is a diagnostic exercise, not an atmospheric model.}
+{At the training gate, horizontal speed is 11.0 km/s and downward
+vertical speed is 1.25 km/s. Find flight-path angle
+\(\gamma=-\arctan(v_{\rm down}/v_{\rm horizontal})\), speed magnitude,
+and kinetic energy per unit mass in MJ/kg.
+Check the modeled corridor \(-6.8^\circ\leq\gamma\leq-6.2^\circ\)
+and energy limit 63.0 MJ/kg. The detailed plan gives splashdown at
+EI plus 13 min 55 s. Find splashdown GET and confirm the interval.}
+{C/D gives the speed ratio; interpolate the tangent table on the
+reference sheet or use T. Use A/D for speed.
+\(e=v^2/2\): a squared speed in (km/s)\(^{2}\) gives MJ/kg directly.
+Use pencil for clock subtraction.}
+{Both corridor and energy checks must be GO. Positive \(\gamma\)
+is an upward trajectory and is RED. These limits are game thresholds,
+not authenticated Apollo flight rules.}
+{AMBER: the predictor requests a corrected pad; charge 1.
+RED: a shallow angle predicts skip-out, a steep angle predicts
+excessive deceleration, or an energy error flags heating uncertainty;
+charge 2. Do not enter until corrected. With reserve intact, narrate
+parachutes and recovery; otherwise the return simulation is unresolved.}
+{Ratio \(=1.25/11=0.113636\).
+Table interpolation gives about \(6.48^\circ\);
+\(\boxed{\gamma=-6.48^\circ}\).
+\(v=\sqrt{11^2+1.25^2}=\boxed{11.1\text{ km/s}}\).
+\(e=(121+1.5625)/2=\boxed{61.3\text{ MJ/kg}}\).
+\(\boxed{\text{GO on both gates}}\).
+Splashdown \(195{:}03{:}27+00{:}13{:}55
+=\boxed{195{:}17{:}22}\).
+Subtracting EI confirms \(\boxed{00{:}13{:}55}\).
+The summary rounds this to 195:17; the game uses the more precise
+detailed timeline rather than inventing zero seconds.}
+
+\ifanswers\else
+\clearpage
+\section*{Apollo 13: change the mission, save the crew}
+\begin{panel}{Advanced mission / fresh command reserve: 4}
+Crew: Lovell, Haise, Swigert. Narrate successful launch, docking, and
+outbound coast. At GET 055:54:53 the service-module oxygen-tank accident
+occurs. The Moon is now a turning point, not a destination.
+Your victory condition is recovery of all three crew after ten
+corrected checkpoints, with command reserve still nonnegative.
+\end{panel}
+
+Unlike the Apollo 11 campaign, this mission requires independent
+full-horizon consumable audits, a logarithmic rocket-equation
+calculation, cartridge-count rounding, signed manual-navigation geometry,
+and a linear entry-correction model.
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Historical anchor & Event used in play\\
+\midrule
+055:54:53 & Oxygen-tank rupture; activate the LM lifeboat.\\
+Near 061:30 & LM propulsion restores the desired free-return path.\\
+079:27:39 & PC+2 begins after the lunar swingby.\\
+Near 105:19 & Later manual correction; about a 15 s burn.\\
+Final correction & A 22.4 s burn motivates the entry-predictor exercise.\\
+141:30:02 & Aquarius jettison; Odyssey must already be ready.\\
+142:54:41 & Historical splashdown and crew recovery.\\
+\bottomrule
+\end{tabularx}
+
+\textbf{Planning epoch.} Consumable cards 13-03, 13-04, and 13-06 all
+start their accounting at 058:00:00, regardless of when they are discussed
+in the narrative. Plan the entire remaining horizon only once per pool.
+Copy the time horizon to scrap paper and reuse it.
+
+\textbf{Provenance.} The supplied PDF and text are both Apollo 11
+resources. NASA's Apollo 13 catalog supplies these rescue event anchors.
+All game inventories, simplified burn models, and failure thresholds
+are invented and marked as training data.
+
+\textbf{Before committing.} The commander checks direction, the LM
+pilot checks the protected reserve, and the CM pilot checks time and
+units. Any player may catch an error for free before ``commit.''
+Start card 13-01 with a fresh ledger; do not carry Apollo 11 resources.
+\fi
+
+\Card{13-01}{The alarm: power the lifeboat}
+{Historical tank rupture 055:54:53. [N1]; this activation model is invented.}
+{Lovell takes command, Swigert powers down Odyssey, and Haise prepares
+Aquarius. The explosion occurs regardless of your previous success.
+Your objective changes from landing to bringing all three crew home.}
+{In a separate emergency CM battery pool, usable energy is 2.40 kWh.
+Load is 1.20 kW and LM activation takes 22 min.
+Find initial endurance, activation energy, remaining energy,
+and endurance remaining at that load. Find activation completion GET.
+Is activation possible before this pool is exhausted?}
+{Use C/D: \(t=E/P\), \(E=Pt\), minutes divided by 60.
+Subtract energy on paper; add 22 min to the alarm time.
+This emergency pool is not the protected entry battery on card 13-10.}
+{Activate Aquarius immediately and transfer the crew.
+Keeping Odyssey at this load indefinitely is NO-GO.
+The explosion is a scripted historical event, never a penalty for bad math.}
+{AMBER: transition checklist delays threaten battery margin; charge 1.
+RED: the power-down budget is rejected; charge 2 for a contingency
+transfer rehearsal. Reserve exhaustion means the rescue simulation fails.}
+{Initial endurance \(=2.40/1.20=\boxed{2.00\text{ h}}\).
+Activation \(=22/60=0.366667\) h;
+energy \(=1.20(0.366667)=\boxed{0.440\text{ kWh}}\).
+Remaining \(=2.40-0.440=\boxed{1.96\text{ kWh}}\).
+Remaining endurance \(=1.96/1.20=\boxed{1.63\text{ h}}\)
+(98 min).
+Completion \(055{:}54{:}53+00{:}22{:}00
+=\boxed{056{:}16{:}53}\).
+\(\boxed{\text{GO}}\): 22 min is less than 120 min.}
+
+\Card{13-02}{Restore a free return}
+{Historical LM return maneuver near GET 061:30; magnitude 11.6 m/s. [N1]}
+{The docked stack is not on the desired return path.
+Haise reads a two-axis training pad while Lovell checks its direction.
+This burn is distinct from the later PC+2 maneuver.}
+{Training components are \((+11.0,+3.70)\) m/s.
+Find total \(\Delta v\) and burn time using average acceleration
+0.400 m/s\(^{2}\).
+For a modeled constant thrust 12,000 N, \(I_{\rm sp}=305\) s,
+and \(g_0=9.81\) m/s\(^{2}\), find mass flow and propellant used.}
+{A/D handles vector magnitude. C/D:
+\(t=\Delta v/\bar a\),
+\(\dot m=F/(I_{\rm sp}g_0)\), \(m_{\rm used}=\dot m t\).
+Keep intermediate readings on the sheet; do not repeatedly round them.
+The fixed average acceleration is a supplied approximation.}
+{Preserve both positive components. For this isolated maneuver,
+usable propellant is 150 kg and at least 20 kg must remain.
+Check the fuel gate; it is not the PC+2 tank inventory.}
+{AMBER: return tracking predicts a correction; charge 1.
+RED: a wrong-way or underbudgeted burn fails the free-return
+predictor; charge 2 for a replanning rehearsal. No lunar landing is
+available as an alternative ending.}
+{\(\Delta v=\sqrt{11^2+3.7^2}
+=\sqrt{134.69}=\boxed{11.6\text{ m/s}}\).
+\(t=11.605602/0.400=\boxed{29.0\text{ s}}\).
+\(\dot m=12{,}000/(305\cdot9.81)
+=\boxed{4.01\text{ kg/s}}\).
+\(m_{\rm used}=4.010629(29.014005)
+=\boxed{116\text{ kg}}\) (guard value 116.364).
+Remaining \(=150-116.364=\boxed{33.6\text{ kg}}\).
+\(\boxed{\text{GO}}\), above the 20 kg reserve.
+Mass and thrust values are training inputs, not the historical burn pad.}
+
+\Card{13-03}{Three people, one oxygen budget}
+{Game accounting epoch 058:00:00; historical splashdown 142:54:41. [N1]}
+{Aquarius was designed for a different mission. Haise must choose a
+conservation profile for the entire remaining flight. The same exact
+time horizon will be used on the electrical and water cards.}
+{Compute remaining flight time \(T\) in h:m:s and decimal hours.
+LM usable oxygen is 12.0 kg with a protected 2.00 kg reserve.
+Compare ``conserve'' use 0.0350 kg/(person h) against ``normal''
+0.0500 kg/(person h), for three people.
+Calculate total use and remaining oxygen for each; choose a safe profile.}
+{Subtract GET on paper.
+On C/D calculate \(T=84+54/60+41/3600\) and
+\(m=3rT\). Subtract each use from 12.0 kg.
+Keep \(T\) to at least four digits on paper for later cards.}
+{Remaining oxygen must be at least 2.00 kg.
+Do not confuse per-person use with total cabin use.
+Carry the chosen profile to the mission ledger; all rates are
+fictional planning averages.}
+{AMBER: an incorrect budget prompts tighter rationing; charge 1.
+RED: the selected profile cannot sustain the protected oxygen margin;
+charge 2 for an emergency conservation replan.}
+{\(142{:}54{:}41-058{:}00{:}00
+=\boxed{84{:}54{:}41}\);
+\(T=\boxed{84.9113889\text{ h}}\), normally read as 84.9 h.
+Conserve: \(3(0.0350)T=\boxed{8.92\text{ kg}}\);
+remaining \(\boxed{3.08\text{ kg}}\) (3.084304), GO.
+Normal: \(3(0.0500)T=\boxed{12.7\text{ kg}}\);
+remaining \(\boxed{-0.737\text{ kg}}\) (minus 0.736708), NO-GO.
+Choose \(\boxed{\text{conserve}}\).
+Its margin above the protected 2 kg is 1.084304 kg.}
+
+\Card{13-04}{A dark, cold electrical plan}
+{Same 058:00:00--142:54:41 horizon as 13-03.}
+{Swigert asks which loads can remain off.
+Haise proposes a low-power Aquarius profile; Lovell insists on
+keeping entry energy protected rather than spending it on comfort.}
+{Use \(T\) from 13-03. LM energy pool is 18.0 kWh; retain 2.50 kWh.
+Non-idle operations cost 0.600 kWh in addition to idle use.
+Compare idle loads 0.160 kW (low) and 0.240 kW (normal).
+Find total use and remaining energy for each, and maximum permissible
+idle power. Choose a profile.}
+{C/D: \(E_{\rm use}=PT+0.600\).
+Pencil: \(E_{\rm left}=18-E_{\rm use}\).
+Then \(P_{\max}=(18-2.50-0.600)/T\).
+Energy is kWh; power is kW. Do not multiply power by seconds here.}
+{The low-power plan must retain at least 2.50 kWh.
+The 0.600 kWh operations allowance already includes modeled LM burns;
+do not charge them again. This pool is separate from CM entry energy.}
+{AMBER: incorrect switching instructions force load shedding; charge 1.
+RED: the chosen profile predicts depletion before recovery; charge 2
+and rewrite the electrical plan. Cold and dim conditions are narrative
+effects, not additional hidden resource deductions.}
+{Low use \(=0.160(84.9113889)+0.600
+=\boxed{14.2\text{ kWh}}\) (14.185822);
+remaining \(\boxed{3.81\text{ kWh}}\).
+Normal use \(=0.240T+0.600=\boxed{21.0\text{ kWh}}\);
+remaining \(\boxed{-2.98\text{ kWh}}\).
+\(P_{\max}=14.9/84.9113889
+=\boxed{0.175\text{ kW}}\) (175.477 W).
+Choose \(\boxed{\text{low}}\).
+At 0.160 kW the reserve margin is 1.314178 kWh above 2.50.}
+
+\Card{13-05}{PC+2: shorten the trip}
+{Historical PC+2 ignition 079:27:39; burn 263.4 s, \(\Delta v=262\) m/s. [N1]}
+{After passing the Moon, Aquarius must shorten the return.
+This is the advanced slide-rule challenge: solve the rocket equation
+backward, then compare the predicted duration with the historical anchor.}
+{For a fictional mass model, \(m_0=30{,}000\) kg,
+effective exhaust velocity \(v_e=3000\) m/s, target \(\Delta v=262\) m/s,
+and average propellant flow 9.525 kg/s.
+Find final mass, propellant used, and burn duration.
+Find historical scheduled cutoff using 263.4 s, not your rounded prediction.}
+{Use C/D and L:
+\(x=\Delta v/(2.302585v_e)\),
+\(m_f=m_0\,10^{-x}\),
+\(m_{\rm used}=m_0-m_f\), \(t=m_{\rm used}/\dot m\).
+On L, find the mantissa \(1-x\), read \(10^{1-x}\) on D,
+then divide by 10 to obtain \(10^{-x}\).
+Subtraction uses pencil; retain extra readable digits before subtracting.}
+{The isolated burn's usable propellant is 2700 kg; retain 150 kg.
+Mass must decrease, so \(m_f<m_0\). A wrong exponent sign is RED.
+The historical time is an anchor; the masses and flow are invented.}
+{AMBER: duration disagrees with the acceleration plan; charge 1 for a
+throttle-pad correction. RED: the burn budget or exponent is wrong;
+charge 2 for an emergency targeting rehearsal.}
+{\(x=262/(2.302585\cdot3000)=0.03792838\).
+\(10^{-x}=0.91637159\).
+\(m_f=30{,}000(0.91637159)
+=\boxed{27{,}491.15\text{ kg}}\) (slide-rule reading about 27,490).
+Used \(=30{,}000-27{,}491.15
+=\boxed{2508.85\text{ kg}}\), report \(2.51\times10^3\) kg.
+\(t=2508.85237/9.525=\boxed{263\text{ s}}\)
+(263.39657 s).
+Remaining burn pool \(=2700-2508.85
+=\boxed{191\text{ kg}}\), GO.
+Historical cutoff \(079{:}27{:}39+00{:}04{:}23.4
+=\boxed{079{:}32{:}02.4}\).
+Allow the normal 1\% band on propellant despite subtractive sensitivity.}
+
+\Card{13-06}{Cooling water versus drinking water}
+{Same full return horizon \(T=84.9113889\) h; planning epoch 058:00:00.}
+{Haise balances cooling against the crew's drinking allowance.
+Choose a modeled cooling profile without borrowing the water
+protected for entry and recovery.}
+{Water starts at 100 kg; protect 12.0 kg.
+Each of three crew uses 0.0600 kg/h for drinking.
+Compare cooling 0.900 kg/h (normal) with 0.700 kg/h (reduced).
+Find combined rates, total use, and water left for both profiles.
+Find the maximum allowable cooling rate, then choose a safe profile.}
+{C/D: \(r_{\rm total}=r_{\rm cool}+3r_{\rm drink}\),
+\(m_{\rm use}=r_{\rm total}T\).
+Subtract from 100 on paper.
+\(r_{\rm cool,max}=(100-12)/T-3r_{\rm drink}\).}
+{Keep at least 12.0 kg. Both proposed cooling settings are assumed
+thermally permissible in this game; no thermal engineering calculation
+is implied. The drinking allowance is not optional.}
+{AMBER: a bad ration sheet prompts an uncomfortable reduced-cooling
+replan; charge 1. RED: the selected profile consumes protected water;
+charge 2 for emergency ration planning. Do not invent additional
+water losses for narrative delays.}
+{Drinking rate \(=3(0.0600)=0.180\) kg/h.
+Normal total \(=\boxed{1.08\text{ kg/h}}\);
+use \(=1.08T=\boxed{91.7\text{ kg}}\);
+left \(\boxed{8.30\text{ kg}}\), NO-GO.
+Reduced total \(=\boxed{0.880\text{ kg/h}}\);
+use \(=0.880T=\boxed{74.7\text{ kg}}\);
+left \(\boxed{25.3\text{ kg}}\), GO.
+Maximum cooling \(=88/T-0.180
+=\boxed{0.856\text{ kg/h}}\).
+Choose \(\boxed{\text{reduced}}\).
+Its margin above reserve is 13.277978 kg.}
+
+\Card{13-07}{Make the square cartridge fit}
+{Training checkpoint GET 090:00:00; CO\(_2\) planning to 134:00:00.}
+{The astronauts need a cartridge adapter. The referee narrates its
+construction from available materials; the mathematics determines
+how many compatible cartridges and how soon they are needed.
+This is not a real breathing-system construction guide.}
+{Three people produce 0.900 kg of CO\(_2\) per person per day.
+Existing compatible absorbent has 0.600 kg capacity remaining.
+Each adapted spare removes 1.80 kg.
+Find hourly production, the load for the next 44 h, and the minimum
+integer number of spares needed in addition to existing capacity.
+Find capacity margin, time until existing capacity runs out,
+and the adapter deadline GET. Assembly takes 2.00 h: find time slack.}
+{Use C/D for rate conversion and load.
+Compute \(n=\lceil(m_{\rm load}-0.600)/1.80\rceil\): round UP.
+Deadline \(t=0.600/r_{\rm hourly}\).
+Add deadline to 090:00:00 and subtract assembly time on paper.}
+{Finish the adapter before existing capacity expires and allocate enough
+spares. Timing this card uses decimal endurance bands and clock bands;
+cartridge count must be the exact minimum integer.}
+{AMBER: a miscount requires inventory review; charge 1.
+RED: the predicted scrubber gap would allow CO\(_2\) accumulation;
+charge 2 for a rushed adapter rehearsal. The referee must not allow
+the game to proceed with a knowingly inadequate scrubber plan.}
+{Production \(=3(0.900)/24=\boxed{0.1125\text{ kg/h}}\).
+Load \(=0.1125(44)=\boxed{4.95\text{ kg}}\).
+\(n=\lceil(4.95-0.600)/1.80\rceil
+=\lceil2.41667\rceil=\boxed{3\text{ spares}}\).
+Capacity margin \(=0.600+3(1.80)-4.95
+=\boxed{1.05\text{ kg}}\).
+Existing endurance \(=0.600/0.1125
+=\boxed{5.33333\text{ h}}\) (5 h 20 min).
+Deadline \(=\boxed{095{:}20{:}00}\).
+Assembly slack \(=5.33333-2=\boxed{3.33333\text{ h}}\)
+(3 h 20 min). GO; finish by 092:00:00 if starting now.}
+
+\Card{13-08}{Navigate without the usual computer}
+{Historical correction near GET 105:19 used about a 15 s burn. [N1]}
+{Lovell uses the visible Earth as an attitude reference.
+Haise works the training pad by hand. There is no die roll for aim:
+your signed vector and angle decide whether the predictor accepts it.}
+{A fictional two-axis correction requires
+\((\Delta v_x,\Delta v_y)=(-2.30,+0.400)\) m/s.
+Find magnitude and burn time at average acceleration 0.155 m/s\(^{2}\).
+Find angle above the negative \(x\) direction:
+\(\theta=\arctan(0.400/2.30)\).
+Write the commanded quadrant explicitly.}
+{Use A/D for the vector root and C/D for division.
+Use T, or interpolate the tangent table supplied on the reference sheet.
+Signs define the quadrant; \(\theta\) is a small positive angle measured
+from the negative \(x\) axis toward positive \(y\), not from positive \(x\).}
+{Angle bands are GREEN within \(0.05^\circ\), AMBER through \(0.20^\circ\),
+RED beyond. Wrong quadrant is always RED.
+Magnitude and time still use ordinary relative-error bands.}
+{AMBER: the predictor flags aim drift; charge 1 for an attitude reset.
+RED: a wrong quadrant or angle predicts a missed entry corridor;
+charge 2 for a complete manual-navigation rehearsal.}
+{\(\Delta v=\sqrt{2.30^2+0.400^2}
+=\sqrt{5.45}=\boxed{2.33\text{ m/s}}\).
+\(t=2.3345235/0.155=\boxed{15.1\text{ s}}\).
+Ratio \(=0.400/2.30=0.173913\).
+T gives \(\boxed{9.87^\circ}\).
+Table interpolation:
+\(9.5+(0.173913-0.16734)/(0.17633-0.16734)(0.5)
+=9.866^\circ\).
+Command \(\boxed{\text{negative }x,\ \text{positive }y}\),
+or about \(170.13^\circ\) counterclockwise from positive \(x\).
+The historical maneuver's components are not being reconstructed.}
+
+\Card{13-09}{Thread the entry corridor}
+{Final historical correction lasted 22.4 s; game entry predictor is invented. [N1]}
+{Swigert prepares Odyssey while Lovell checks the last correction.
+The flight director supplies a locally linear response model.
+It is deliberately simpler than a real Earth-entry trajectory.}
+{Current modeled entry angle is \(-5.90^\circ\); target is
+\(-6.50^\circ\). A positive corrective \(\Delta v\) changes angle by
+\(-0.0400^\circ\) per m/s. Burn acceleration is 0.670 m/s\(^{2}\).
+Find required \(\Delta v\), nominal burn duration, and predicted angle.
+Find the minimum and maximum burn durations allowed by
+\(-6.80^\circ\leq\gamma\leq-6.20^\circ\).}
+{Use signed subtraction for \(\Delta\gamma\).
+C/D: \(\Delta v=(\gamma_{\rm target}-\gamma_0)/k\) and
+\(t=\Delta v/a\).
+Repeat for both corridor edges.
+Use \(\gamma(t)=\gamma_0+kat\) to check signs.}
+{Command a positive correction with a negative angle response.
+The nominal pad must target \(-6.50^\circ\), not merely any
+duration in the corridor. Angle bands are \(0.05^\circ/0.20^\circ\).
+Report the two duration bounds in ascending order.}
+{AMBER: a small duration error produces a corridor warning; charge 1.
+RED: a too-short burn predicts shallow skip-out; too long predicts
+excessive entry loading. Charge 2 and correct before separation.}
+{\(\Delta\gamma=-6.50-(-5.90)=-0.600^\circ\).
+\(\Delta v=(-0.600)/(-0.0400)=\boxed{15.0\text{ m/s}}\).
+\(t=15/0.670=\boxed{22.4\text{ s}}\);
+\(\gamma=-5.90-0.0400(15)=\boxed{-6.50^\circ}\).
+Shallow edge: \(\Delta v=7.50\) m/s,
+\(t_{\min}=\boxed{11.2\text{ s}}\) (11.19403).
+Steep edge: \(\Delta v=22.5\) m/s,
+\(t_{\max}=\boxed{33.6\text{ s}}\) (33.58209).
+Thus \(11.19403\leq t\leq33.58209\) s is the toy corridor.
+The 22.4 s historical agreement is a chosen training calibration.}
+
+\Card{13-10}{Wake Odyssey and come home}
+{Historical LM jettison 141:30:02; splashdown 142:54:41. [N1]}
+{Swigert powers Odyssey back up. Haise and Lovell check the final
+energy plan before saying goodbye to Aquarius.
+You must finish reactivation before jettisoning the lifeboat.}
+{A separate, protected CM battery starts with 3.00 kWh.
+Reactivation uses 0.800 kW for 45 min; entry 1.20 kW for 30 min;
+recovery beacon 0.150 kW for 4.00 h.
+Find each energy, total use, and energy remaining; retain 0.500 kWh.
+Reactivation begins at 140:30:02: find completion GET and margin
+until LM jettison. Find LM-jettison-to-splashdown interval.}
+{Convert minutes to hours on C/D, then use \(E=Pt\).
+Add energy with pencil; subtract from 3.00.
+Add 45 min to reactivation GET and subtract the historical event times.
+Beacon use extends after splashdown and is included in this pool.}
+{Energy remaining must be at least 0.500 kWh and reactivation must
+finish before 141:30:02. The CM battery was not charged for the
+LM's earlier loads; do not merge those inventories.}
+{AMBER: a sequencing error threatens the transfer; charge 1.
+RED: premature jettison or insufficient entry energy fails the recovery
+predictor; charge 2 and correct the sequence. If reserve remains
+nonnegative and all gates are corrected, narrate parachutes and recovery
+of all three crew. Otherwise end with rescue unproven.}
+{Reactivation \(=0.800(45/60)=\boxed{0.600\text{ kWh}}\).
+Entry \(=1.20(30/60)=\boxed{0.600\text{ kWh}}\).
+Beacon \(=0.150(4)=\boxed{0.600\text{ kWh}}\).
+Total \(=\boxed{1.80\text{ kWh}}\);
+left \(=3.00-1.80=\boxed{1.20\text{ kWh}}\), GO.
+Completion \(140{:}30{:}02+00{:}45{:}00
+=\boxed{141{:}15{:}02}\).
+Jettison margin \(=\boxed{00{:}15{:}00}\), GO.
+Jettison to splashdown
+\(142{:}54{:}41-141{:}30{:}02
+=\boxed{01{:}24{:}39}\).
+The power schedule is fictional; the separation and recovery anchors
+come from the NASA catalog.}

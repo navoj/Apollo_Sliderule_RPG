@@ -1,0 +1,414 @@
+\documentclass[11pt]{article}
+\newif\ifanswers
+\answersfalse
+\newcommand{\Edition}{PLAYER BOOK}
+\input{apollo-style}
+\input{apollo-cover-art}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{0.08in}
+{\large\textsf{PENCIL \quad / \quad PAPER \quad / \quad SLIDE RULE}\par}
+\vspace{0.16in}
+{\fontsize{38}{42}\selectfont\bfseries\sffamily APOLLO\par}
+\vspace{0.08in}
+{\Huge\sffamily Mission Laboratory\par}
+\vspace{0.12in}
+\resizebox{0.92\linewidth}{!}{\ApolloCoverArt}\par
+{\scriptsize Comic-book mission montage / AI-generated ink illustration / not to scale.\par}
+\vspace{0.08in}
+\begin{panel}{Two missions. Every command earns its GO.}
+\centering
+\large Apollo 11 --- Beginner\\[3pt]
+\normalsize Land Eagle, conduct an EVA, rendezvous, and return.\\[8pt]
+\large Apollo 13 --- Advanced\\[3pt]
+\normalsize Turn Aquarius into a lifeboat and bring the crew home.
+\end{panel}
+\vspace{0.05in}
+{\normalsize A cooperative, calculation-driven role-playing game\\
+for one referee and one to three flight crew, or solo play.\par}
+\vfill
+\textbf{20 mission checkpoints / printable working space / no dice}\\[12pt]
+Companion: \texttt{apollo-answer-key.pdf}\\
+Contains every calculation outline, worked answer, and referee ruling.
+\vspace{0.04in}
+
+{\small Inspired by NASA flight planning. Historical schedules and
+invented training models are distinguished throughout.
+An educational game, not flight software or an operational checklist.}
+\end{titlepage}
+
+\section*{Start here: a five-minute crew briefing}
+\begin{panel}{Equipment and session length}
+Print the ten cards for your mission and its ledger. Bring pencils,
+erasers, scrap paper, and at least one physical slide rule with C/D and
+A scales. An L scale is required for Apollo 13's PC+2 problem; a referee
+may supply a printed logarithmic scale if the rule lacks L.
+S/T scales are optional because a small tangent table is supplied.
+No electronic calculators during play.
+Allow 90--150 minutes for Apollo 11, or 2--3 hours for Apollo 13.
+\end{panel}
+
+\textbf{Choose a crew.} For Apollo 11, play Neil Armstrong (commander,
+landing and decisions), Buzz Aldrin (LM pilot, budgets and burn pads),
+and Michael Collins (CM pilot, timing and rendezvous).
+For Apollo 13, play Jim Lovell (commander and manual navigation),
+Fred Haise (LM pilot and life support), and Jack Swigert (CM pilot and
+power-up). One person can play all roles; two people split the third role.
+
+\textbf{Choose Mission Control.} A referee keeps the answer key hidden,
+reads each situation aloud, grades committed sheets, and narrates
+checkpoint consequences. In solo play, cover the answer panel until
+you commit your sheet; then uncover only that card.
+
+\textbf{Mission order.} Finish cards 11-01 through 11-10 for the beginner
+game or 13-01 through 13-10 for the advanced game. Launch and intervening
+coasts are narrated unless a card asks for a calculation. The cards
+sample the essential game operations; they do not replace hundreds
+of actual flight-plan procedures.
+
+\textbf{The role-play loop.}
+\begin{enumerate}
+\item The referee announces GET (ground elapsed time since launch),
+the scene, and the supplied telemetry.
+\item The acting pilot reads the problem aloud. Another pilot estimates
+the order of magnitude and checks units; rotate these jobs each card.
+\item Work products, quotients, roots, and logarithms on the slide rule.
+Use pencil for sums, differences, clock arithmetic, and decisions.
+Write your scale choices and estimate on the card.
+\item Agree on the numerical outputs, signed command, and GO/NO-GO
+decision. Say ``commit'' and record them. Corrections before commitment
+are free; the first committed sheet is the checkpoint.
+\item Mission Control grades, applies one reserve charge, and narrates
+the consequence. Correct an AMBER or RED sheet before continuing.
+\end{enumerate}
+
+\textbf{No hidden arithmetic.} All inputs and equations needed for the
+game appear on the cards or reference sheet. A player's scientific
+knowledge is not used to add secret hazards, additional fuel charges,
+or unstated penalties.
+
+\clearpage
+\section*{Checkpoints: errors have consequences}
+\textbf{Command reserve \(R\)} measures the team's capacity for
+corrective work, not propellant, hours, or human endurance.
+Apollo 11 begins at \(\boxed{R=6}\); Apollo 13 at \(\boxed{R=4}\).
+Reserve is never restored. Physical budgets on the cards remain
+separate from this abstract track.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lXl@{}}
+\toprule
+Band & First committed sheet & Charge\\
+\midrule
+GREEN (G) & Every output is in its GREEN band and every decision gate
+is correct. Execute the nominal command. & 0\\
+AMBER (A) & At least one AMBER output, no RED output or failed gate.
+Narrate that card's warning, then correct. & 1\\
+RED (R) & Any RED output, wrong sign/quadrant, incompatible or missing
+units, missing requested output, or wrong discrete decision.
+Narrate the card's contingency, then correct. & 2\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Grade the worst result once.} Ordinary numerical outputs use
+\[
+\epsilon=100\,\frac{|q_{\rm player}-q_{\rm reference}|}
+{|q_{\rm reference}|}.
+\]
+GREEN is \(\epsilon\leq1\%\); AMBER is \(1\%<\epsilon\leq5\%\);
+RED is \(>5\%\). Referees compare against guard-digit answers, not
+the rounded display value. They may use a calculator privately.
+Three significant figures are normally sufficient.
+
+\textbf{Clock arithmetic.} For h:m:s event times or intervals, GREEN
+means absolute error at most 1 s, AMBER over 1 s through 60 s,
+RED over 60 s. These bands do not apply to burn durations computed by
+division: those use the ordinary relative bands. Decimal hours computed
+from a clock interval also use ordinary bands.
+
+\textbf{Angles.} For 11-10, 13-08, and 13-09, GREEN is within
+\(0.05^\circ\), AMBER over \(0.05^\circ\) through \(0.20^\circ\),
+RED beyond. Cartridge / station counts and profile / diversion choices
+must be exact. Signed negative remainders are valid results when
+evaluating a rejected profile. If a reference were zero, require the
+correct zero and units rather than dividing by zero.
+
+\textbf{Decision gates.} A chosen option that violates a stated fuel,
+oxygen, water, capacity, energy, timing, or entry constraint is RED,
+even when the individual numerical errors are small. An otherwise
+correct choice supported by mildly inaccurate numbers is graded
+AMBER, not automatically RED. Evaluate resource inequalities before
+rounding. A rounded bound that exactly equals a rounded load is not
+permission to consume reserve.
+
+\textbf{Correction protocol.} Subtract the charge. If \(R\geq0\),
+apply the card's narrative and have the crew recompute with a referee
+hint if needed. Revisions are not charged again. Show a corrected,
+GREEN-quality pad and a valid gate before advancing.
+Restore the card's nominal baseline after correction; no numerical
+state changes occur beyond recorded reserve and narrative flags.
+This prevents a small slide-rule error from becoming an unplayable
+cascade. The clock advances to the next card's supplied epoch.
+
+\textbf{If \(R<0\), stop immediately.} Do not solve later cards to
+declare a rescue. Use the ending rules on the next page.
+
+\clearpage
+\section*{Mission paths and endings}
+\begin{panel}{Apollo 11 / beginner}
+Launch and Earth parking orbit \(\rightarrow\) TLI (11-01)
+\(\rightarrow\) docking with Eagle and stage avoidance (11-02)
+\(\rightarrow\) translunar coast and lunar capture (11-03)
+\(\rightarrow\) orbit planning (11-04)
+\(\rightarrow\) undock and DOI (11-05)
+\(\rightarrow\) powered descent (11-06)
+\(\rightarrow\) surface EVA (11-07)
+\(\rightarrow\) ascent and rendezvous (11-08)
+\(\rightarrow\) LM jettison and TEI (11-09)
+\(\rightarrow\) entry and recovery (11-10).
+\end{panel}
+
+Complete all ten corrected gates with \(R\geq0\):
+\textbf{crew recovered; landing achieved}. If any 11-07 warning occurred,
+add ``reduced science'' or ``EVA curtailed'' to the ending.
+Otherwise record ``full planned science.'' Surviving a warning does not
+erase it. The final reserve reports command quality, not human survival odds.
+
+If reserve drops below zero on 11-01 or 11-02, record
+\textbf{safe Earth-orbit abort}. On 11-03 through 11-06,
+record \textbf{landing canceled; safe-return contingency ending}.
+These are narrated training branches, not computed return trajectories.
+On 11-07 through 11-10, record
+\textbf{simulation terminated; return or rendezvous unresolved}.
+Do not pretend a landed crew has an automatic rescue.
+
+\begin{panel}{Apollo 13 / advanced}
+Narrate launch, docking, and outbound coast.
+At 055:54:53 the oxygen-tank accident occurs (13-01).
+Restore free return (13-02), plan oxygen and power (13-03--04),
+perform PC+2 (13-05), budget water (13-06),
+adapt CO\(_2\) cartridges (13-07), correct the trajectory manually
+(13-08--09), and reactivate Odyssey for recovery (13-10).
+\end{panel}
+
+Complete all ten corrected gates with \(R\geq0\):
+\textbf{all three crew recovered; lunar landing abandoned}.
+Any reserve exhaustion means \textbf{rescue simulation failed;
+crew survival not established}. Do not invent a successful landing or
+safe rescue as consolation. The actual Apollo 13 crew returned safely;
+game failure is not an alternate historical claim.
+
+\textbf{Campaign play.} Finish Apollo 11, then start Apollo 13 with its
+own fresh reserve of 4. Do not carry reserve or resources between missions.
+An optional practice session may waive charges, but it is not a scored run.
+
+\textbf{Resource accounting.} Apollo 13 cards 13-03, 13-04, and 13-06
+independently cover the same full return horizon from 058:00:00.
+They are planning audits, not new inventory snapshots taken at each
+later checkpoint. Do not subtract elapsed-flight consumption again.
+Cards 13-01, 13-02, 13-05, and 13-10 explicitly use separate pools.
+Cards 13-07--09 supply their own local scenarios.
+
+\clearpage
+\section*{The slide-rule flight desk}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Operation & Hand procedure\\
+\midrule
+\(ab\), \(a/b\) & C/D: align the C index with \(a\) on D for multiplication;
+read D under \(b\) on C. For division align \(b\) on C with \(a\) on D
+and read under the C index. Choose left or right index to stay on-scale.\\
+\(a^2,\sqrt a\) & D to A gives a square; A to D gives a square root.
+Choose the A-scale half using the exponent / an order-of-magnitude estimate.\\
+Vector length & Square components on A or C/D, add on paper,
+then take a square root. Signs disappear only inside the magnitude;
+retain them on the commanded vector.\\
+\(10^x\), \(\log_{10}a\) & L reads the logarithmic mantissa associated
+with D. Keep the characteristic (integer power of ten) on paper.
+For a small negative exponent, use \(10^{-x}=10^{1-x}/10\).\\
+Trigonometry & T gives \(\tan\theta\); slide designs differ, so consult
+the rule's scale labels. If no T scale, use the table below.
+Linear interpolation is pencil arithmetic with C/D division.\\
+\bottomrule
+\end{tabularx}
+
+\begin{panel}{Decimal places are your responsibility}
+A slide rule reads significant figures, not powers of ten.
+Example: \(120\text{ m}/2\text{ m/s}\) must be near 60 s,
+not 6 or 600 s. Write the estimate first.
+Products and quotients require a recorded slide-rule scale operation
+to count as completed game work. A correct guessed number is not a
+completed calculation sheet; work it before committing.
+\end{panel}
+
+\textbf{Common constants and equations}
+\[
+1\text{ ft}=0.3048\text{ m},\qquad 1\text{ h}=60\text{ min}=3600\text{ s}
+\]
+\[
+\Delta v=\sqrt{\sum_i\Delta v_i^2},\quad
+\bar a=\Delta v/t,\quad E=Pt,\quad m=r t,\quad
+\Delta v=v_e\ln(m_0/m_f).
+\]
+\(\ln x=2.302585\log_{10}x\). The rocket equation describes an ideal
+single burn without external forces; use only the card's stated model.
+Every rate must share the time unit of its duration.
+
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Angle & Tangent & Angle & Tangent\\
+\midrule
+\(6.0^\circ\) & 0.10510 & \(9.0^\circ\) & 0.15838\\
+\(6.4^\circ\) & 0.11217 & \(9.5^\circ\) & 0.16734\\
+\(6.5^\circ\) & 0.11394 & \(10.0^\circ\) & 0.17633\\
+\(6.8^\circ\) & 0.11924 & \(10.5^\circ\) & 0.18534\\
+\bottomrule
+\end{tabular}
+\end{center}
+Between entries \((\theta_1,u_1)\) and \((\theta_2,u_2)\), use
+\(\theta\simeq\theta_1+(u-u_1)(\theta_2-\theta_1)/(u_2-u_1)\).
+
+\textbf{Clock example.} GET 102:35:13 means 102 hours after launch,
+not 10:35 a.m. Add 11:58 as minutes:seconds to get 102:47:11.
+
+\clearpage
+\section*{Apollo 11: the flight plan becomes a game}
+The supplied \texttt{Apollo11\_Flight\_Plan.pdf} is NASA's
+\emph{Final Flight Plan, July 1, 1969}; \texttt{flight\_plan.txt}
+is a text rendition of that same Apollo 11 document.
+The game's chronology follows its planned sequence, not a reconstructed
+as-flown Apollo 11 timeline.
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Planned GET & Event used in play\\
+\midrule
+000:11:43 & Earth-orbit insertion; narrated.\\
+002:44:26 & TLI; 5 min 20 s.\\
+004:39:44.9 & Evasive maneuver after extraction and docking.\\
+075:54:28.4 & First lunar-orbit insertion.\\
+080:09:29.7 & Second lunar-orbit insertion; narrated.\\
+100:39:50.4 & CSM/LM separation; narrated.\\
+101:38:48 & Descent-orbit insertion.\\
+102:35:13 & Powered descent begins.\\
+102:47:11 & Planned touchdown.\\
+124:23:26 & Planned ascent.\\
+125:21:19.1 & Coelliptic sequence initiation (CSI).\\
+131:53:04.7 & Post-rendezvous LM-jettison separation maneuver; narrated.\\
+135:24:33.8 & Trans-Earth injection.\\
+195:03:27 & Detailed timeline's entry interface.\\
+195:17:22 & Detailed timeline's splashdown (EI plus 13 min 55 s).\\
+\bottomrule
+\end{tabularx}
+
+\textbf{Start condition.} Crew: Armstrong / Aldrin / Collins.
+Command reserve 6. Launch is successful. Write your reserve on the
+Apollo 11 ledger before card 11-01.
+
+\textbf{Why the decimal precision varies.} Burn tables provide tenths
+of a second, while some summary charts round to a minute.
+The game uses burn tables for ignition/duration and the detailed
+timeline for entry interface and its elapsed-time table for splashdown.
+The summary's 195:17 splashdown is rounded to the minute.
+
+\textbf{What the game does not calculate.} The full launch guidance,
+midcourse orbit determination, landmark tracking, P52 realignment,
+complete lunar rendezvous, and parachute mechanics are narrated.
+The ten cards contain all mandatory hand calculations for this
+game's mission, not all computations made by NASA.
+
+\input{apollo-missions}
+
+\clearpage
+\section*{Apollo 11 / flight director's ledger}
+Crew names:\ \hrulefill\qquad Date:\ \rule{1in}{0.3pt}
+
+Initial command reserve: \textbf{6}. Charge GREEN 0, AMBER 1, RED 2.
+Stop if reserve becomes negative. A reserve of exactly zero still permits
+continuation after correction.
+
+\renewcommand{\arraystretch}{1.65}
+\begin{tabularx}{\linewidth}{@{}lXccc@{}}
+\toprule
+Card & Operation & G/A/R & Charge & \(R\) left\\
+\midrule
+11-01 & TLI & \rule{0.4in}{0.3pt} & \rule{0.3in}{0.3pt} & \rule{0.3in}{0.3pt}\\
+11-02 & Stage avoidance & & &\\
+11-03 & Lunar capture & & &\\
+11-04 & Orbit windows & & &\\
+11-05 & DOI / coast & & &\\
+11-06 & Landing / diversion & & &\\
+11-07 & EVA / oxygen & & &\\
+11-08 & Ascent / docking & & &\\
+11-09 & Earth departure & & &\\
+11-10 & Entry / recovery & & &\\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1}
+
+\textbf{EVA narrative flag:}\ full science / reduced science / EVA curtailed.
+
+\textbf{Ending:}\ \hrulefill
+
+\vspace{0.3in}
+\textbf{Crew debrief:} What decimal-place, unit, sign, or clock error
+did your independent check catch before commitment?
+\vfill
+\rule{\linewidth}{0.3pt}\\[30pt]\rule{\linewidth}{0.3pt}\\[30pt]
+\rule{\linewidth}{0.3pt}
+
+\clearpage
+\section*{Apollo 13 / flight director's ledger}
+Crew names:\ \hrulefill\qquad Date:\ \rule{1in}{0.3pt}
+
+Initial command reserve: \textbf{4}. Fresh mission, fresh reserve.
+All consumable figures below are fictional training pools.
+
+\renewcommand{\arraystretch}{1.45}
+\begin{tabularx}{\linewidth}{@{}lXccc@{}}
+\toprule
+Card & Operation & G/A/R & Charge & \(R\) left\\
+\midrule
+13-01 & Emergency transfer & & &\\
+13-02 & Free-return correction & & &\\
+13-03 & Oxygen plan & & &\\
+13-04 & Electrical plan & & &\\
+13-05 & PC+2 & & &\\
+13-06 & Water plan & & &\\
+13-07 & CO\(_2\) adapter & & &\\
+13-08 & Manual navigation & & &\\
+13-09 & Entry correction & & &\\
+13-10 & CM restart / recovery & & &\\
+\bottomrule
+\end{tabularx}
+\renewcommand{\arraystretch}{1}
+
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+\toprule
+Accepted plan & Choice / result & Protected minimum\\
+\midrule
+13-03 oxygen & \hrulefill & 2.00 kg\\
+13-04 LM energy & \hrulefill & 2.50 kWh\\
+13-06 water & \hrulefill & 12.0 kg\\
+13-07 scrubber spares & \hrulefill & No capacity gap\\
+13-10 CM energy & \hrulefill & 0.500 kWh\\
+\bottomrule
+\end{tabularx}
+
+\textbf{Accounting horizon:} 058:00:00 to 142:54:41.
+These are independent full-horizon audits, not cumulative deductions.
+Record only the corrected accepted results.
+
+\textbf{Ending:}\ \hrulefill
+
+\vfill
+\textbf{Debrief:} Which crew member checked the power of ten? Which
+decision protected a reserve instead of spending it?
+\\[25pt]\rule{\linewidth}{0.3pt}\\[25pt]\rule{\linewidth}{0.3pt}
+
+\clearpage
+\input{apollo-sources}
+\end{document}

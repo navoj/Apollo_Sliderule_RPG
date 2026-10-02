@@ -1,0 +1,64 @@
+\section*{Sources, provenance, and modeling boundaries}
+\textbf{[F1] Supplied Apollo 11 flight-plan resources.}
+NASA Manned Spacecraft Center, \emph{Apollo 11, AS-506/CSM-107/LM-5,
+Final Flight Plan}, July 1, 1969.
+Local files: \texttt{Apollo11\_Flight\_Plan.pdf} (353 PDF pages)
+and \texttt{flight\_plan.txt}.
+The text rendition is not an Apollo 13 flight plan.
+Printed section page numbers below are preferable to text-file line
+numbers, which change with extraction format.
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Source location & What is used\\
+\midrule
+pp. 1-1--1-3 & Phase order; orbit insertion; EVA duration;
+118.2 min lunar orbit, 47 min night, 72 min MSFN coverage;
+summary entry / splashdown schedule.\\
+Figure 1-3, p. 1-7 & Powered-descent structure; high/low gates motivate
+the fictional terminal landing decision.\\
+Table 1-1, p. 1-8 & CSM ignition times, burn durations, and supplied
+vector components for TLI, avoidance, LOI, and TEI. PDF page 30.\\
+Table 1-2, p. 1-9 & DOI, PDI, ascent, and CSI timing; required
+velocity changes. PDF page 31.\\
+Detailed timeline, p. 3-69 & PDI 102:35:13, burn 11:58,
+touchdown 102:47:11.\\
+Detailed timeline, p. 3-135 & Entry interface 195:03:27,
+more precise than the summary's 195:03; splashdown EI plus 13:55,
+giving 195:17:22.\\
+\bottomrule
+\end{tabularx}
+
+\textbf{[N1] Supplemental Apollo 13 history.}
+NASA Space Science Data Coordinated Archive,
+\emph{Apollo 13 Command and Service Module}, catalog ID 1970-029A,
+``Mission Profile,'' accessed October 2, 2026.
+\url{https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1970-029A}
+
+This source documents the accident at GET 55:54:53, transfer to the LM,
+an 11.6 m/s return maneuver, the 263.4 s / 262 m/s PC+2 burn,
+an approximately 15 s later correction, a 22.4 s final correction,
+LM jettison, and splashdown at GET 142:54:41.
+Times given in UTC are converted from launch at April 11, 1970,
+19:13:00 UTC: PC+2 April 15 at 02:40:39 becomes 079:27:39;
+LM jettison April 17 at 16:43:02 becomes 141:30:02.
+The April 16 correction at 04:32 UTC is near 105:19 GET;
+the game does not present it as an exact ignition timestamp.
+
+\textbf{What is invented.} Emergency and entry battery pools, resource
+inventories and rates, allowable reserves, simplified thrust / mass
+models, docking range and speed, terminal landing fuel and altitude,
+science-station durations, cartridge capacities, manual-navigation
+components, entry geometry and linear response, checkpoint bands,
+command reserve, and every error consequence are game design.
+No supplied Apollo 13 flight plan was available.
+Historical Apollo 13 event anchors supplement the Apollo 11 plan's
+flight-planning structure; its rescue path is not an Apollo 11 timeline
+with names changed.
+
+\textbf{Limits.} No numerical model here predicts a true orbit,
+real atmospheric heating, scrubber chemistry, or mission survival.
+Fixed rates and average acceleration are intentional educational
+approximations. All real missions required substantial ground and
+onboard computation; this game does not claim they were flown using
+only a slide rule.

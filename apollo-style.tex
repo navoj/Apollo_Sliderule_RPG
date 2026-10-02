@@ -1,0 +1,64 @@
+\usepackage[letterpaper,margin=0.72in,headheight=16pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\definecolor{navy}{RGB}{25,48,72}
+\definecolor{pale}{RGB}{240,244,247}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=navy,
+  pdftitle={Apollo Slide-Rule Mission Laboratory},
+  pdfauthor={Apollo Slide-Rule Mission Laboratory}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist[enumerate]{nosep,leftmargin=*,itemsep=3pt}
+\setlist[itemize]{nosep,leftmargin=*,itemsep=3pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsf{APOLLO / SLIDE-RULE MISSION LABORATORY}}
+\fancyhead[R]{\small\textsf{\Edition}}
+\fancyfoot[L]{\small Pencil, paper, slide rule}
+\fancyfoot[R]{\thepage}
+\newtcolorbox{panel}[1]{colback=pale,colframe=navy,boxrule=0.5pt,
+  arc=1mm,title={#1},fonttitle=\bfseries\sffamily,
+  left=8pt,right=8pt,top=6pt,bottom=6pt}
+\newcommand{\heading}[2]{\section*{\textsf{#1}\quad #2}}
+\newcommand{\writingline}{\par\vfill\noindent\rule{\linewidth}{0.3pt}}
+\newcommand{\worklines}{%
+  \par\bigskip
+  \textbf{Calculation record:} scales used, estimate, working, units, command.
+  \writingline\writingline\writingline
+  \writingline\writingline\writingline
+  \par\medskip
+  \textbf{Committed command / decision:}\ \hrulefill\\[12pt]
+  \textbf{Checkpoint:}\ G / A / R \qquad
+  \textbf{Reserve after checkpoint:}\ \rule{0.6in}{0.3pt}\quad
+  \textbf{Corrected:}\ yes / no}
+\newcommand{\Card}[9]{%
+  \clearpage
+  \heading{#1}{#2}
+  {\small\textbf{Timeline / provenance:} #3\par}
+  \ifanswers
+    \begin{panel}{Calculation outline --- all required outputs}#5\end{panel}
+    \textbf{Hand method and slide-rule scales.} #6\par
+    \begin{panel}{Worked answers (guard digits are not player precision)}#9\end{panel}
+    \textbf{Physical / decision gate.} #7\par
+    \textbf{Checkpoint consequences.} #8\par
+    \vfill
+    {\small Grade the first committed sheet using the referee protocol.
+    Ordinary readings use 1\% / 5\% bands; time arithmetic and angles use
+    their own bands. Use the worst result, including the decision gate.
+    Charge reserve once, then require a corrected sheet before continuing.}
+  \else
+    \begin{panel}{Flight director's situation}#4\end{panel}
+    \textbf{Your calculation orders.} #5\par
+    \textbf{Procedure.} #6\par
+    \textbf{GO / NO-GO gate.} #7\par
+    \textbf{If your calculation is wrong.} #8\par
+    \worklines
+  \fi}
